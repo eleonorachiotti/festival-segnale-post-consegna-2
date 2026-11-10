@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Info e luoghi — Segnale</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@14.4.0/swiper-bundle.min.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenuto">Vai al contenuto</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html">Segnale<span>Festival di design</span></a>
+      <nav aria-label="Navigazione principale">
+        <a href="index.html">Home</a>
+        <a href="programma.html">Programma</a>
+        <a href="info.html" aria-current="page">Info e luoghi</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenuto" class="container">
+    <section class="intro">
+      <p class="eyebrow">12–13 giugno · Torino · Festival immaginario</p>
+      <h1>Info e luoghi</h1>
+      <p class="lead">Scopri le sedi del festival e come raggiungerle.</p>
+      <p class="reading-text">Gli appuntamenti di Segnale si svolgono in tre luoghi di Torino. Le fotografie e la mappa aiutano a orientarsi tra le sedi.</p>
+    </section>
+
+    <section class="content-section" aria-labelledby="galleria-titolo">
+      <h2 id="galleria-titolo">Le sedi</h2>
+
+      <div class="swiper luoghi-swiper" aria-label="Galleria fotografica delle sedi">
+        <div class="swiper-wrapper">
+          <figure class="swiper-slide">
+            <img src="assets/luoghi/sede-centrale.jpg"
+                 alt="Edificio della sede centrale del Politecnico di Torino in corso Duca degli Abruzzi"
+                 width="1200" height="800">
+            <figcaption>
+              <strong>Sede centrale</strong>
+              <span>Corso Duca degli Abruzzi 24 — Officina Nord nel festival immaginario.</span>
+            </figcaption>
+          </figure>
+
+          <figure class="swiper-slide">
+            <img src="assets/luoghi/politecnico-valentino.jpg"
+                 alt="Cortile geometrico del complesso del Valentino a Torino"
+                 width="1200" height="800">
+            <figcaption>
+              <strong>Politecnico al Valentino</strong>
+              <span>Viale Mattioli 39 — Spazio Forma nel festival immaginario.</span>
+            </figcaption>
+          </figure>
+
+          <figure class="swiper-slide">
+            <img src="assets/luoghi/mirafiori.jpg"
+                 alt="Edificio del Centro Design a Mirafiori, Torino"
+                 width="1200" height="800">
+            <figcaption>
+              <strong>Sede di Mirafiori</strong>
+              <span>Corso Luigi Settembrini 178 — Cortile Comune nel festival immaginario.</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="gallery-controls">
+          <button class="swiper-button-prev" type="button" aria-label="Fotografia precedente"></button>
+          <span class="swiper-pagination" aria-live="polite"></span>
+          <button class="swiper-button-next" type="button" aria-label="Fotografia successiva"></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" aria-labelledby="arrivare-titolo">
+      <h2 id="arrivare-titolo">Come arrivare</h2>
+      <p class="reading-text">Consulta la mappa per individuare le tre sedi. Gli indirizzi e i collegamenti alle indicazioni sono riportati anche qui sotto.</p>
+
+      <div class="map-container">
+        <iframe id="mappa-sedi"
+          title="Mappa delle tre sedi di riferimento per il festival Segnale a Torino"
+          src="https://umap.openstreetmap.fr/it/map/segnale-sedi-del-festival-immaginario_1479665?scaleControl=false&amp;miniMapControl=false&amp;scrollWheelZoom=false&amp;zoomControl=true&amp;editMode=disabled&amp;moreControl=true&amp;searchControl=null&amp;tilelayersControl=null&amp;embedControl=null&amp;datalayersControl=true&amp;onLoadPanel=none&amp;captionBar=false&amp;captionMenus=true#12/45.0465/7.6528"
+          loading="lazy">
+        </iframe>
+      </div>
+
+      <p>
+        <a href="https://umap.openstreetmap.fr/it/map/segnale-sedi-del-festival-immaginario_1479665?scaleControl=false&amp;miniMapControl=false&amp;scrollWheelZoom=true&amp;zoomControl=true&amp;editMode=disabled&amp;moreControl=true&amp;searchControl=null&amp;tilelayersControl=null&amp;embedControl=null&amp;datalayersControl=true&amp;onLoadPanel=none&amp;captionBar=false&amp;captionMenus=true#12/45.0465/7.6528">
+          Visualizza la mappa a schermo intero
+        </a>
+      </p>
+
+      <ul class="venue-addresses">
+        <li><strong>Sede centrale</strong> — Corso Duca degli Abruzzi 24, Torino.
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Corso+Duca+degli+Abruzzi+24%2C+Torino">Indicazioni stradali</a>
+        </li>
+        <li><strong>Politecnico al Valentino</strong> — Viale Mattioli 39, Torino.
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Viale+Mattioli+39%2C+Torino">Indicazioni stradali</a>
+        </li>
+        <li><strong>Sede di Mirafiori</strong> — Corso Luigi Settembrini 178, Torino.
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Corso+Luigi+Settembrini+178%2C+Torino">Indicazioni stradali</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Segnale · Progetto didattico · Festival immaginario</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@14.4.0/swiper-bundle.min.js"></script>
+  <script>
+    new Swiper(".luoghi-swiper", {
+      slidesPerView: 1,
+      spaceBetween: 24,
+      loop: false,
+      keyboard: {
+        enabled: true,
+        onlyInViewport: true
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        type: "fraction"
+      },
+      a11y: {
+        enabled: true
+      }
+    });
+  </script>
+</body>
+</html>
