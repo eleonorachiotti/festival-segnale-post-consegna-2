@@ -1,9 +1,9 @@
 /* Segnale: stile condiviso per Home, Programma e Info e luoghi. */
 
 :root {
-  --colore-primario: #ef341b;
-  --colore-primario-scuro: #f01313;
-  --colore-sfondo: #fcf5e0;
+  --colore-primario: #9BB4ED;
+  --colore-primario-scuro: #7A94D0;
+  --colore-sfondo: #f9f8f6;
   --colore-testo: #202923;
   --font-testo: "Lato", Arial, Helvetica, sans-serif;
   --font-titoli: "Lato", Georgia, "Times New Roman", serif;
@@ -134,8 +134,9 @@ h3 {
   margin-top: 1rem;
   padding: 0.75rem 1.25rem;
   border-radius: 0.5rem;
-  background: var(--colore-primario);
-  color: #ffffff;
+  background: 
+  #F5D6E5;
+  color: #121212;
   font-weight: bold;
   text-decoration: none;
 }
