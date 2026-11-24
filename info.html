@@ -32,6 +32,42 @@
       <p class="reading-text">Gli appuntamenti di Segnale si svolgono in tre luoghi di Torino. Le fotografie e la mappa aiutano a orientarsi tra le sedi.</p>
     </section>
 
+    <section class="content-section" aria-labelledby="meteo-titolo">
+      <h2 id="meteo-titolo">Meteo a Torino adesso</h2>
+
+      <div class="weather-card">
+        <p id="stato-meteo" class="weather-status" role="status" aria-live="polite">
+          Caricamento dei dati meteo…
+        </p>
+
+        <div id="dati-meteo" class="weather-values" hidden>
+          <p class="weather-item">
+            <span>Temperatura</span>
+            <strong id="temperatura"></strong>
+          </p>
+          <p class="weather-item">
+            <span>Vento</span>
+            <strong id="vento"></strong>
+          </p>
+          <p class="weather-item">
+            <span>Ora del dato</span>
+            <strong id="ora-meteo"></strong>
+          </p>
+        </div>
+
+        <p class="weather-note">
+          È il meteo di oggi, non una previsione per le date del festival.
+        </p>
+
+        <p class="weather-source">
+          Dati meteo:
+          <a href="https://open-meteo.com/" rel="noopener">Open-Meteo</a>,
+          licenza
+          <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>.
+        </p>
+      </div>
+    </section>
+
     <section class="content-section" aria-labelledby="galleria-titolo">
       <h2 id="galleria-titolo">Le sedi</h2>
 
@@ -95,13 +131,16 @@
       </p>
 
       <ul class="venue-addresses">
-        <li><strong>Sede centrale</strong> — Corso Duca degli Abruzzi 24, Torino.
+        <li>
+          <strong>Sede centrale</strong> — Corso Duca degli Abruzzi 24, Torino.
           <a href="https://www.google.com/maps/search/?api=1&amp;query=Corso+Duca+degli+Abruzzi+24%2C+Torino">Indicazioni stradali</a>
         </li>
-        <li><strong>Politecnico al Valentino</strong> — Viale Mattioli 39, Torino.
+        <li>
+          <strong>Politecnico al Valentino</strong> — Viale Mattioli 39, Torino.
           <a href="https://www.google.com/maps/search/?api=1&amp;query=Viale+Mattioli+39%2C+Torino">Indicazioni stradali</a>
         </li>
-        <li><strong>Sede di Mirafiori</strong> — Corso Luigi Settembrini 178, Torino.
+        <li>
+          <strong>Sede di Mirafiori</strong> — Corso Luigi Settembrini 178, Torino.
           <a href="https://www.google.com/maps/search/?api=1&amp;query=Corso+Luigi+Settembrini+178%2C+Torino">Indicazioni stradali</a>
         </li>
       </ul>
@@ -136,6 +175,49 @@
         enabled: true
       }
     });
+  </script>
+
+  <script>
+    async function caricaMeteo() {
+      const stato = document.querySelector("#stato-meteo");
+      const dati = document.querySelector("#dati-meteo");
+
+      try {
+        const url =
+          "https://api.open-meteo.com/v1/forecast?latitude=45.0703&longitude=7.6869&current=temperature_2m,wind_speed_10m&timezone=Europe%2FRome";
+
+        const risposta = await fetch(url);
+
+        if (!risposta.ok) {
+          throw new Error("Richiesta meteo non riuscita.");
+        }
+
+        const risultato = await risposta.json();
+        const corrente = risultato.current;
+        const unita = risultato.current_units;
+
+        if (!corrente || !unita) {
+          throw new Error("Dati meteo non disponibili.");
+        }
+
+        document.querySelector("#temperatura").textContent =
+          `${corrente.temperature_2m} ${unita.temperature_2m}`;
+
+        document.querySelector("#vento").textContent =
+          `${corrente.wind_speed_10m} ${unita.wind_speed_10m}`;
+
+        document.querySelector("#ora-meteo").textContent =
+          `${corrente.time.replace("T", " ")} (${risultato.timezone})`;
+
+        stato.textContent = "";
+        dati.hidden = false;
+      } catch (errore) {
+        console.error(errore);
+        stato.textContent = "I dati meteo non sono disponibili al momento.";
+      }
+    }
+
+    caricaMeteo();
   </script>
 </body>
 </html>

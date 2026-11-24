@@ -134,8 +134,7 @@ h3 {
   margin-top: 1rem;
   padding: 0.75rem 1.25rem;
   border-radius: 0.5rem;
-  background: 
-  #F5D6E5;
+  background: #F5D6E5;
   color: #121212;
   font-weight: bold;
   text-decoration: none;
@@ -302,6 +301,57 @@ h3 {
   margin-bottom: 1rem;
 }
 
+/* Riquadro meteo */
+.weather-card {
+  max-width: 42rem;
+  padding: 1.5rem;
+  border: 1px solid #b7c0b7;
+  border-left: 6px solid var(--colore-primario);
+  border-radius: 0.75rem;
+  background: #ffffff;
+}
+
+.weather-values {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 0.75rem;
+}
+
+.weather-item {
+  display: grid;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0.875rem;
+  border-radius: 0.5rem;
+  background: var(--colore-sfondo);
+}
+
+.weather-item span {
+  color: #46564b;
+  font-size: 0.875rem;
+}
+
+.weather-item strong {
+  color: var(--colore-testo);
+}
+
+.weather-note {
+  margin: 1.25rem 0 0.5rem;
+}
+
+.weather-source {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.weather-card a {
+  color: #405b9c;
+}
+
+.weather-status:empty {
+  display: none;
+}
+
 /* Da 600px: menu orizzontale e due colonne per gli eventi */
 @media (min-width: 600px) {
   nav {
@@ -336,6 +386,10 @@ h3 {
   }
 
   .event-body {
+    padding: 1rem;
+  }
+
+  .weather-card {
     padding: 1rem;
   }
 }
