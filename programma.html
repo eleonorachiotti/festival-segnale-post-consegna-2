@@ -28,7 +28,11 @@
       <p class="eyebrow">12–13 giugno · Torino · Festival immaginario</p>
       <h1 id="titolo-programma">Il programma</h1>
       <p class="lead">Incontri, laboratori e mostre: scegli da dove cominciare.</p>
-      <p class="reading-text">Il venerdì esploriamo lettere, materiali e immagini. Il sabato incontriamo oggetti, mappe e progetti condivisi. Scopri gli appuntamenti e i luoghi del festival.</p>
+      <p class="reading-text">
+        Il venerdì esploriamo lettere, materiali e immagini. Il sabato incontriamo
+        oggetti, mappe e progetti condivisi. Scopri gli appuntamenti e i luoghi
+        del festival.
+      </p>
     </section>
 
     <section class="content-section" aria-labelledby="titolo-eventi">
@@ -75,13 +79,15 @@
           throw new Error("Il formato dei file JSON non è valido.");
         }
 
+        grigliaEventi.replaceChildren();
+
         if (eventi.length === 0) {
-          statoProgramma.textContent = "Al momento non ci sono eventi in programma.";
+          statoProgramma.textContent =
+            "Al momento non ci sono eventi in programma.";
           return;
         }
 
         const sediPerId = new Map(sedi.map(sede => [sede.id, sede]));
-        grigliaEventi.replaceChildren();
 
         for (const evento of eventi) {
           const sede = sediPerId.get(evento.sede_id);
@@ -114,6 +120,7 @@
 
           const etichettaSede = document.createElement("strong");
           etichettaSede.textContent = "Sede:";
+
           luogo.append(
             etichettaSede,
             ` ${sede ? sede.nome : "Sede da definire"}`

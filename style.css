@@ -3,14 +3,25 @@
 :root {
   --colore-primario: #9BB4ED;
   --colore-primario-scuro: #7A94D0;
+  --colore-rosa: #F5D6E5;
+  --colore-rosa-hover: #edc3d7;
   --colore-sfondo: #f9f8f6;
   --colore-testo: #202923;
+  --colore-secondario: #46564b;
+  --colore-bordo: #b7c0b7;
+  --colore-bianco: #ffffff;
+
   --font-testo: "Lato", Arial, Helvetica, sans-serif;
-  --font-titoli: "Lato", Georgia, "Times New Roman", serif;
+  --font-titoli: "Lato", Arial, Helvetica, sans-serif;
+  --raggio: 0.75rem;
 }
 
 * {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -19,19 +30,20 @@ body {
   color: var(--colore-testo);
   font-family: var(--font-testo);
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.65;
+}
+
+img {
+  max-width: 100%;
 }
 
 a {
-  color: var(--colore-primario);
+  color: var(--colore-testo);
+  text-underline-offset: 0.2em;
 }
 
 a:hover {
-  text-decoration: underline;
-}
-
-a:focus {
-  outline: 3px solid var(--colore-testo);
+  color: var(--colore-primario-scuro);
 }
 
 a:focus-visible,
@@ -43,172 +55,17 @@ button:focus-visible {
 .container {
   width: 92%;
   max-width: 68rem;
-  margin: 0 auto;
+  margin-inline: auto;
 }
 
-/* Header sticky */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  padding: 1rem 0;
-  border-bottom: 4px solid var(--colore-primario);
-  background: var(--colore-sfondo);
-}
-
-.brand {
-  display: inline-block;
-  color: var(--colore-testo);
-  font-size: 1.75rem;
-  font-weight: bold;
-  line-height: 1.2;
-  text-decoration: none;
-}
-
-.brand span {
-  display: block;
-  margin-top: 0.25rem;
-  font-size: 0.875rem;
-  font-weight: normal;
-}
-
-/* Menu verticale sotto i 600px */
-nav {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.25rem;
-  margin-top: 1rem;
-}
-
-nav a {
-  display: inline-block;
-  margin: 0;
-  padding: 0.25rem 0;
-}
-
-.intro {
-  padding: 3rem 0 1rem;
-}
-
-.eyebrow,
-.event-meta {
-  color: #46564b;
-  font-size: 0.875rem;
-  font-weight: bold;
-}
-
-h1,
-h2,
-h3 {
-  font-family: var(--font-titoli);
-  line-height: 1.2;
-}
-
-h1 {
-  max-width: 18ch;
-  margin: 0.75rem 0 1.25rem;
-  font-size: 2.5rem;
-}
-
-h2 {
-  font-size: 1.75rem;
-}
-
-h3 {
-  margin: 0.5rem 0 0.75rem;
-  font-size: 1.375rem;
-}
-
-.lead {
-  max-width: 48ch;
-  font-size: 1.25rem;
-}
-
-.reading-text {
-  max-width: 65ch;
-}
-
-.button-link {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.75rem 1.25rem;
-  border-radius: 0.5rem;
-  background: #F5D6E5;
-  color: #121212;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.button-link:hover {
-  background: var(--colore-primario-scuro);
-}
-
-.content-section {
-  margin: 2rem 0 3rem;
-}
-
-.festival-image {
-  display: block;
-  width: 100%;
-  max-width: 54rem;
-  height: auto;
-  margin-top: 1.5rem;
-  border-radius: 0.75rem;
-}
-
-.venues {
-  padding-left: 1.25rem;
-}
-
-.venues li {
-  margin-bottom: 0.5rem;
-}
-
-.event-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 3rem;
-}
-
-.event-card {
-  min-width: 0;
-  overflow: hidden;
-  border: 1px solid #b7c0b7;
-  border-radius: 0.75rem;
-  background: #ffffff;
-}
-
-.event-card img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.event-body {
-  padding: 1.5rem;
-}
-
-.event-place {
-  margin-bottom: 0;
-  color: #46564b;
-  font-size: 0.875rem;
-}
-
-.site-footer {
-  padding: 1.25rem 0;
-  border-top: 1px solid #b7c0b7;
-  color: #46564b;
-  font-size: 0.875rem;
-}
-
+/* Link di accessibilità */
 .skip-link {
   position: absolute;
   top: -6rem;
   left: 1rem;
   z-index: 2000;
   padding: 0.75rem 1rem;
-  background: #ffffff;
+  background: var(--colore-bianco);
   color: var(--colore-testo);
 }
 
@@ -216,29 +73,235 @@ h3 {
   top: 1rem;
 }
 
-/* Galleria fotografica */
+/* Header sticky e navigazione responsive */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0.85rem 0;
+  border-bottom: 3px solid var(--colore-primario);
+  background: var(--colore-sfondo);
+}
+
+.site-header .container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.brand {
+  display: inline-block;
+  color: var(--colore-testo);
+  font-size: 1.75rem;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  line-height: 1.1;
+  text-decoration: none;
+}
+
+.brand span {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--colore-secondario);
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+
+nav a {
+  display: inline-block;
+  padding: 0.2rem 0;
+  color: var(--colore-testo);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+  color: var(--colore-primario-scuro);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+/* Tipografia e contenuti */
+.intro {
+  padding: clamp(2.5rem, 7vw, 5rem) 0 1rem;
+}
+
+.eyebrow,
+.event-meta {
+  color: var(--colore-secondario);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--colore-testo);
+  font-family: var(--font-titoli);
+  line-height: 1.15;
+}
+
+h1 {
+  max-width: 18ch;
+  margin: 0.65rem 0 1.1rem;
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: -0.06em;
+}
+
+h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+h3 {
+  margin: 0.5rem 0 0.75rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.lead {
+  max-width: 48ch;
+  color: var(--colore-testo);
+  font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+  line-height: 1.4;
+}
+
+.reading-text {
+  max-width: 65ch;
+  color: var(--colore-secondario);
+}
+
+.content-section {
+  margin: clamp(2.5rem, 6vw, 4.5rem) 0;
+}
+
+/* Pulsante rosa */
+.button-link {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.7rem 1.15rem;
+  border: 1px solid #e8bfd2;
+  border-radius: 999px;
+  background: var(--colore-rosa);
+  color: #121212;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 160ms ease;
+}
+
+.button-link:hover {
+  background: var(--colore-rosa-hover);
+  color: #121212;
+}
+
+/* Immagine home: responsive, senza ritaglio */
+.festival-image {
+  display: block;
+  width: 100%;
+  max-width: 54rem;
+  height: auto;
+  margin-top: 1.5rem;
+  border: 1px solid var(--colore-bordo);
+  border-radius: var(--raggio);
+}
+
+/* Elenchi delle sedi */
+.venues,
+.venue-addresses {
+  padding-left: 1.25rem;
+}
+
+.venues li,
+.venue-addresses li {
+  margin-bottom: 0.65rem;
+}
+
+.venues strong,
+.venue-addresses strong {
+  color: var(--colore-secondario);
+}
+
+/* Schede degli eventi */
+.event-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+}
+
+.event-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--colore-bordo);
+  border-radius: var(--raggio);
+  background: var(--colore-rosa);
+}
+
+.event-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background: var(--colore-bianco);
+}
+
+.event-body {
+  padding: 1.25rem;
+  background: var(--colore-rosa);
+}
+
+.event-meta {
+  margin-top: 0;
+  font-size: 0.8rem;
+}
+
+.event-place {
+  margin-bottom: 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--colore-bordo);
+  color: var(--colore-secondario);
+  font-size: 0.9rem;
+}
+
+/* Galleria Swiper: immagini responsive senza ritaglio */
 .luoghi-swiper {
   width: 100%;
   max-width: 54rem;
   overflow: hidden;
-  border-radius: 0.75rem;
-  background: #ffffff;
+  border: 1px solid var(--colore-bordo);
+  border-radius: var(--raggio);
+  background: var(--colore-bianco);
 }
 
 .luoghi-swiper .swiper-slide {
   height: auto;
   margin: 0;
   overflow: hidden;
-  border: 1px solid #b7c0b7;
-  border-radius: 0.75rem;
+  background: var(--colore-bianco);
 }
 
 .luoghi-swiper .swiper-slide img {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
+  max-height: 38rem;
+  object-fit: contain;
+  background: var(--colore-bianco);
 }
 
 .luoghi-swiper figcaption {
@@ -263,13 +326,13 @@ h3 {
   width: 2.75rem;
   height: 2.75rem;
   margin: 0;
-  color: var(--colore-primario);
+  color: var(--colore-primario-scuro);
 }
 
 .luoghi-swiper .swiper-button-prev::after,
 .luoghi-swiper .swiper-button-next::after {
   font-size: 1.25rem;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .luoghi-swiper .swiper-pagination {
@@ -278,12 +341,13 @@ h3 {
   color: var(--colore-testo);
 }
 
-/* Mappa e indirizzi */
+/* Mappa */
 .map-container {
   width: 100%;
   overflow: hidden;
-  border: 1px solid #b7c0b7;
-  border-radius: 0.75rem;
+  border: 1px solid var(--colore-bordo);
+  border-radius: var(--raggio);
+  background: var(--colore-bianco);
 }
 
 .map-container iframe {
@@ -293,33 +357,26 @@ h3 {
   border: 0;
 }
 
-.venue-addresses {
-  padding-left: 1.25rem;
-}
-
-.venue-addresses li {
-  margin-bottom: 1rem;
-}
-
-/* Riquadro meteo */
+/* Card meteo con striscia laterale rosa */
 .weather-card {
   max-width: 42rem;
-  padding: 1.5rem;
-  border: 1px solid #b7c0b7;
-  border-left: 6px solid var(--colore-primario);
-  border-radius: 0.75rem;
-  background: #ffffff;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border: 1px solid var(--colore-bordo);
+  border-left: 6px solid var(--colore-rosa);
+  border-radius: var(--raggio);
+  background: var(--colore-bianco);
 }
 
 .weather-values {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
   gap: 0.75rem;
 }
 
 .weather-item {
   display: grid;
   gap: 0.25rem;
+  min-width: 0;
   margin: 0;
   padding: 0.875rem;
   border-radius: 0.5rem;
@@ -327,12 +384,13 @@ h3 {
 }
 
 .weather-item span {
-  color: #46564b;
+  color: var(--colore-secondario);
   font-size: 0.875rem;
 }
 
 .weather-item strong {
   color: var(--colore-testo);
+  overflow-wrap: anywhere;
 }
 
 .weather-note {
@@ -341,19 +399,36 @@ h3 {
 
 .weather-source {
   margin: 0;
+  color: var(--colore-secondario);
   font-size: 0.875rem;
 }
 
 .weather-card a {
-  color: #405b9c;
+  color: var(--colore-primario-scuro);
 }
 
 .weather-status:empty {
   display: none;
 }
 
-/* Da 600px: menu orizzontale e due colonne per gli eventi */
+/* Footer */
+.site-footer {
+  margin-top: 3rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--colore-bordo);
+  color: var(--colore-secondario);
+  font-size: 0.875rem;
+}
+
+/* Layout per tablet e desktop */
 @media (min-width: 600px) {
+  .site-header .container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
   nav {
     flex-direction: row;
     align-items: center;
@@ -365,7 +440,6 @@ h3 {
   }
 }
 
-/* Da 1024px: tre colonne per gli eventi */
 @media (min-width: 1024px) {
   .event-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -373,10 +447,6 @@ h3 {
 }
 
 @media (max-width: 480px) {
-  h1 {
-    font-size: 2rem;
-  }
-
   .map-container iframe {
     height: 22rem;
   }
@@ -388,8 +458,14 @@ h3 {
   .event-body {
     padding: 1rem;
   }
+}
 
-  .weather-card {
-    padding: 1rem;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition-duration: 0.01ms !important;
   }
 }
